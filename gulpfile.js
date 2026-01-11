@@ -1,16 +1,23 @@
-const gulp = require("gulp");
-const sass = require("gulp-sass")(require("sass"));
+const gulp = require('gulp');
+const sass = require('gulp-sass')(require('sass'));
+const imagemin = require('gulp-imagemin');
+const sourcemaps = require('gulp-sourcemaps');
 
-function styles () {
-    return gulp.src("./srs/styles/*.scss")
-        .pipe(sass({outputStyle: "compressed"}))
-        .pipe(gulp.dest("./dist/styles/css"));
+function styles() {
+    return gulp.src('src/styles/*.scss')
+        .pipe(sourcemaps.init())
+        .pipe(sass({ outputStyle: 'compressed' }))
+        .pipe(sourcemaps.write('.'))
+        .pipe(gulp.dest('dist/css'));
 }
 
-function watch() {
-    gulp.watch("./srs/styles/*.scss", gulp.parallel(styles));
+function images() {
+    return gulp.src('src/images/**/*')
+        .pipe(gulp.dest('dist/images'));
 }
 
-exports.default = gulp.parallel(styles, watch);
-exports.build = styles;
-exports.watch = watch;
+exports.default = gulp.parallel(styles, images);
+exports.styles = styles;
+exports.watch = function() {
+    gulp.watch('src/styles/*.scss', gulp.parallel(styles));
+}

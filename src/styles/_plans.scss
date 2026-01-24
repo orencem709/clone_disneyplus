@@ -1,0 +1,60 @@
+.plans {
+    padding: 5.6vw;
+
+    h2 {
+        text-align: center;
+        margin-bottom: 2vw;
+    }
+
+    &__list {
+        display: flex;
+        justify-content: center;
+        gap: 2vw;
+        margin-top: 44px;
+        list-style: none;
+        
+        &__item {
+            text-align: center;
+            padding: 24px 22px;
+            max-width: 260px;
+            border-radius: 4px;
+
+            &:nth-child(2) {
+                background-image: url(../images/fundo_combo_plus.png);
+                background-repeat: no-repeat;
+                background-size: contain;
+            }
+
+            img {
+                height: 52px;
+                margin-bottom: 12px;
+            }
+
+            strong {
+                display: block;
+                font-size: 20px;
+                margin-bottom: 12px;
+            }
+
+            p {
+                font-size: 14px;
+                line-height: 20px;
+                margin-bottom: 16px;
+                color: #999;
+            }
+
+            .button {
+                padding: 8px 44px;
+                font-size: 15px;
+                white-space: nowrap;
+            }
+        }
+    }
+
+    p {
+        text-align: center;
+        margin-top: 24px;
+        font-size: 12px;
+        color: #999;
+    }
+}
